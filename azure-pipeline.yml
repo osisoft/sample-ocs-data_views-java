@@ -50,8 +50,6 @@ variables:
 steps:
 - checkout: library
 
-- script: dir $(Build.SourcesDirectory)
-
 jobs:
   - job: Tests
     strategy:
