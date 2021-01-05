@@ -47,9 +47,6 @@ variables:
   - name: analysisProject
     value: DataViews_Java
 
-steps:
-- checkout: library
-
 jobs:
   - job: Tests
     strategy:
@@ -61,6 +58,7 @@ jobs:
     pool:
       vmImage: $(imageName)
     steps:
+      - checkout: library
       - template: '/miscellaneous/build_templates/config.yml@templates'
         parameters:
           fileOriginal: $(CredFile)
