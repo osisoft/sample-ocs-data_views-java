@@ -39,7 +39,7 @@ variables:
   - name: projPath
     value: '/'
   - name: libPath
-    value: '/@library'
+    value: '/'
   - name: CredFile
     value: config.properties
   - name: CredFileLibrary
@@ -72,13 +72,13 @@ jobs:
           jdkDestinationDirectory: '$(Agent.ToolsDirectory)/jdk11'
           cleanDestinationDirectory: false
 
-      - script: mvn install -f pom.xml
+      - script: mvn install -f pom.xml@library
         workingDirectory: $(Build.SourcesDirectory)$(libPath)/
         displayName: 'Maven install library'
 
       - task: Maven@3
         inputs:
-          mavenPomFile: '$(Build.SourcesDirectory)$(projPath)/pom.xml'
+          mavenPomFile: '$(Build.SourcesDirectory)$(projPath)/pom.xml@library'
           goals: test
           publishJUnitResults: true
           testResultsFiles: '**/TEST-*.xml'
