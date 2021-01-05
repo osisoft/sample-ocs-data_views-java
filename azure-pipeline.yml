@@ -39,13 +39,18 @@ variables:
   - name: projPath
     value: '/'
   - name: libPath
-    value: '/'
+    value: '/library/'
   - name: CredFile
     value: config.properties
   - name: CredFileLibrary
     value: product-readiness.dataviews_java.properties
   - name: analysisProject
     value: DataViews_Java
+
+steps:
+- checkout: library
+
+- script: dir $(Build.SourcesDirectory)
 
 jobs:
   - job: Tests
@@ -72,13 +77,13 @@ jobs:
           jdkDestinationDirectory: '$(Agent.ToolsDirectory)/jdk11'
           cleanDestinationDirectory: false
 
-      - script: mvn install -f pom.xml@library
+      - script: mvn install -f pom.xml
         workingDirectory: $(Build.SourcesDirectory)$(libPath)/
         displayName: 'Maven install library'
 
       - task: Maven@3
         inputs:
-          mavenPomFile: '$(Build.SourcesDirectory)$(projPath)/pom.xml@library'
+          mavenPomFile: '$(Build.SourcesDirectory)$(projPath)/pom.xml'
           goals: test
           publishJUnitResults: true
           testResultsFiles: '**/TEST-*.xml'
