@@ -4,7 +4,7 @@
 
 [![Build Status](https://dev.azure.com/osieng/engineering/_apis/build/status/product-readiness/OCS/osisoft.sample-ocs-data_views-java?repoName=osisoft%2Fsample-ocs-data_views-java&branchName=master)](https://dev.azure.com/osieng/engineering/_build/latest?definitionId=2617&repoName=osisoft%2Fsample-ocs-data_views-java&branchName=master)
 
-The sample code in this demonstrates how to invoke Data View REST APIs via the sample Java client [library](https://github.com/osisoft/OSI-Samples/tree/master/library_samples/Java). The sample demonstrates how to establish a connection to SDS, obtain an authorization token, create an SdsType and SdsStream with data (if needed), create a data view, update it, retrieve it, and retrieve data from it in different ways. At the end of the sample, everything that was created is deleted.
+The sample code in this demonstrates how to invoke Data View REST APIs via the sample Java client [library](https://github.com/osisoft/sample-ocs-sample_libraries-java). The sample demonstrates how to establish a connection to SDS, obtain an authorization token, create an SdsType and SdsStream with data (if needed), create a data view, update it, retrieve it, and retrieve data from it in different ways. At the end of the sample, everything that was created is deleted.
 
 ## Summary of steps to run the Java demo
 
@@ -42,6 +42,6 @@ Using a command line:
 
 Tested against Maven 3.6.3 and Java Runtime Environment 11.
 
-For the general steps or switch languages see the Task [ReadMe](../)  
-For the main OCS page [ReadMe](https://github.com/osisoft/OSI-Samples-OCS)  
-For the main samples page on master [ReadMe](https://github.com/osisoft/OSI-Samples)
+For the main OCS data view samples page on master [ReadMe](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/DATA_VIEWS_README.md)  
+For the main OCS samples page on master [ReadMe](https://github.com/osisoft/OSI-Samples-OCS)  
+For the main OSIsoft samples page on master [ReadMe](https://github.com/osisoft/OSI-Samples)
