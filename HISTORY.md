@@ -1,5 +1,10 @@
 # Version History
 
+## 1.0.3 / 2021-01-25
+
+- Updated dependencies
+- Moved client library installation instructions to the library repo's readme
+
 ## 1.0.2 / 2020-10-20
 
 - Updated Java version
