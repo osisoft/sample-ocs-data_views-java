@@ -1,5 +1,9 @@
 # Version History
 
+## 1.0.4 / 2021-02-09
+
+- Fixed standalone repo azure pipeline
+
 ## 1.0.3 / 2021-01-25
 
 - Updated dependencies

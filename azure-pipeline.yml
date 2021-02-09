@@ -37,7 +37,7 @@ resources:
 variables:
   - template: '/miscellaneous/build_templates/variables.yml@templates'
   - name: projPath
-    value: '/'
+    value: '/s'
   - name: libPath
     value: '/lib'
   - name: CredFile
