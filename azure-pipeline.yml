@@ -37,9 +37,9 @@ resources:
 variables:
   - template: '/miscellaneous/build_templates/variables.yml@templates'
   - name: projPath
-    value: '/_work/s'
+    value: '/'
   - name: libPath
-    value: '/_work/lib'
+    value: '/lib'
   - name: CredFile
     value: config.properties
   - name: CredFileLibrary
@@ -59,9 +59,9 @@ jobs:
       vmImage: $(imageName)
     steps:
       - checkout: self
-        path: '$(projPath)'
+        path: 's'
       - checkout: library
-        path: '$(libPath)'
+        path: 'lib'
       - template: '/miscellaneous/build_templates/config.yml@templates'
         parameters:
           fileOriginal: $(CredFile)
