@@ -39,7 +39,7 @@ variables:
   - name: projPath
     value: '/'
   - name: libPath
-    value: '/lib'
+    value: '../lib'
   - name: CredFile
     value: config.properties
   - name: CredFileLibrary
@@ -61,7 +61,7 @@ jobs:
       - checkout: self
         path: 's'
       - checkout: library
-        path: 's\lib'
+        path: 'lib'
       - template: '/miscellaneous/build_templates/config.yml@templates'
         parameters:
           fileOriginal: $(CredFile)
