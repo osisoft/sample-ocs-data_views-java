@@ -1,5 +1,10 @@
 # Version History
 
+## 1.0.5 / 2021-03-24
+
+- Updated pipeline to use internal agent pool
+- Updated pipeline to reference main branch
+
 ## 1.0.4 / 2021-02-09
 
 - Fixed standalone repo azure pipeline
