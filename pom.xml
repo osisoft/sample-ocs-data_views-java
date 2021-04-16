@@ -22,7 +22,7 @@
       <dependency> 
         <groupId> com.github.osisoft.ocs_sample_library_preview</groupId>
         <artifactId>ocs_sample_library_preview</artifactId>
-        <version>[0.0.22-preview,)</version>
+        <version>[0.0.24-preview,)</version>
     </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.7.0</version>
+            <version>5.7.1</version>
             <scope>test</scope>
         </dependency>
   </dependencies>
