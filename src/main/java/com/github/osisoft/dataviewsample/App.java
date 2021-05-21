@@ -281,11 +281,11 @@ public class App {
             SdsType doubleType = new SdsType("doubleType", "", "", SdsTypeCode.Double);
             SdsType dateTimeType = new SdsType("dateTimeType", "", "", SdsTypeCode.DateTime);
 
-            SdsTypeProperty pressureDoubleProperty = new SdsTypeProperty("pressure", "", "", doubleType, false);
+            SdsTypeProperty pressureDoubleProperty = new SdsTypeProperty("pressure", "", "", doubleType, false, "bar");
             SdsTypeProperty temperatureDoubleProperty = new SdsTypeProperty(sampleFieldToConsolidateTo, "", "",
-                    doubleType, false);
+                    doubleType, false, "degree Celsius");
             SdsTypeProperty ambientTemperatureDoubleProperty = new SdsTypeProperty(sampleFieldToConsolidate, "", "",
-                    doubleType, false);
+                    doubleType, false, "degree Celsius");
             SdsTypeProperty timeDateTimeProperty = new SdsTypeProperty("time", "", "", dateTimeType, true);
 
             SdsType sdsType1 = new SdsType(sampleTypeId1, "", "", SdsTypeCode.Object,
