@@ -26,6 +26,11 @@ public class App {
     static String sampleStreamName2 = "Tank100";
     static String sampleFieldToConsolidateTo = "temperature";
     static String sampleFieldToConsolidate = "ambient_temp";
+    static String sampleFieldToAddUom1 = "pressure";
+    static String sampleFieldToAddUom2 = "temperature";
+    static String sampleFieldToSummarize = "pressure";
+    static String summaryType1 = "Mean";
+    static String summaryType2 = "Total";
     static Instant sampleStartTime = null;
     static Instant sampleEndTime = null;
 
@@ -198,13 +203,65 @@ public class App {
                     sampleStartTime.toString(), sampleEndTime.toString(), sampleInterval).getResponse();
             System.out.println(dataViewData);
             assert dataViewData.length() > 0 : "Error getting data view data";
+
+            // Step 12
+            System.out.println();
+            System.out.println("Step 12: Add Units of Measure Column");
+            field1 = findField(dvDataItemFieldSet.getDataFields(), FieldSource.PropertyId,
+                    sampleFieldToAddUom1);
+            field2 = findField(dvDataItemFieldSet.getDataFields(), FieldSource.PropertyId,
+                    sampleFieldToAddUom2);
+            assert field1 != null : "Error finding data field";
+            assert field2 != null : "Error finding data field";
+            System.out.println(ocsClient.mGson.toJson(field1));
+            System.out.println(ocsClient.mGson.toJson(field2));
+
+            field1.IncludeUom = true;
+            field2.IncludeUom = true;
+            ocsClient.DataViews.createOrUpdateDataView(namespaceId, dataView);
+
+            System.out.println("Retrieving data from the data view:");
+            dataViewData = ocsClient.DataViews.getDataViewData(namespaceId, sampleDataViewId,
+                    sampleStartTime.toString(), sampleEndTime.toString(), sampleInterval).getResponse();
+            System.out.println(dataViewData);
+            assert dataViewData.length() > 0 : "Error getting data view data";
+
+            // Step 13
+            System.out.println();
+            System.out.println("Step 13: Add Summaries Columns");
+            field1 = findField(dvDataItemFieldSet.getDataFields(), FieldSource.PropertyId,
+                    sampleFieldToSummarize);
+            assert field1 != null : "Error finding data field";
+            System.out.println(ocsClient.mGson.toJson(field1));
+
+            Field summaryField1 = new Field(field1);
+            Field summaryField2 = new Field(field1);
+
+            summaryField1.SummaryDirection = SummaryDirection("Forward");
+            summaryField1.SdsSummaryType = SdsSummaryType(summaryType1);
+            summaryField2.SummaryDirection = SummaryDirection("Forward");
+            summaryField2.SdsSummaryType = SdsSummaryType(summaryType2);
+
+            fields = new ArrayList<Field>(Arrays.asList(dvDataItemFieldSet.getDataFields()));
+            fields.add(summaryField1);
+            fields.add(summaryField2);
+            dvDataItemFieldSet.setDataFields(Arrays.copyOf(fields.toArray(), fields.size(), Field[].class));
+            ocsClient.DataViews.createOrUpdateDataView(namespaceId, dataView);
+            ocsClient.DataViews.createOrUpdateDataView(namespaceId, dataView);
+
+            System.out.println("Retrieving data from the data view:");
+            dataViewData = ocsClient.DataViews.getDataViewData(namespaceId, sampleDataViewId,
+                    sampleStartTime.toString(), sampleEndTime.toString(), sampleInterval).getResponse();
+            System.out.println(dataViewData);
+            assert dataViewData.length() > 0 : "Error getting data view data";
+
         } catch (Exception e) {
             e.printStackTrace();
             success = false;
         } finally {
-            // Step 12
+            // Step 14
             System.out.println();
-            System.out.println("Step 12: Delete sample objects from OCS");
+            System.out.println("Step 14: Delete sample objects from OCS");
             try {
                 System.out.println("Deleting data view...");
                 ocsClient.DataViews.deleteDataView(namespaceId, sampleDataViewId);
