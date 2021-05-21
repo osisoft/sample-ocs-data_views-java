@@ -29,8 +29,8 @@ public class App {
     static String sampleFieldToAddUom1 = "pressure";
     static String sampleFieldToAddUom2 = "temperature";
     static String sampleFieldToSummarize = "pressure";
-    static String summaryType1 = "Mean";
-    static String summaryType2 = "Total";
+    static SdsSummaryType summaryType1 = SdsSummaryType.Mean;
+    static SdsSummaryType summaryType2 = SdsSummaryType.Total;
     static Instant sampleStartTime = null;
     static Instant sampleEndTime = null;
 
@@ -216,8 +216,8 @@ public class App {
             System.out.println(ocsClient.mGson.toJson(field1));
             System.out.println(ocsClient.mGson.toJson(field2));
 
-            field1.IncludeUom = true;
-            field2.IncludeUom = true;
+            field1.setIncludeUom(true);
+            field2.setIncludeUom(true);
             ocsClient.DataViews.createOrUpdateDataView(namespaceId, dataView);
 
             System.out.println("Retrieving data from the data view:");
@@ -237,10 +237,10 @@ public class App {
             Field summaryField1 = new Field(field1);
             Field summaryField2 = new Field(field1);
 
-            summaryField1.SummaryDirection = SummaryDirection("Forward");
-            summaryField1.SdsSummaryType = SdsSummaryType(summaryType1);
-            summaryField2.SummaryDirection = SummaryDirection("Forward");
-            summaryField2.SdsSummaryType = SdsSummaryType(summaryType2);
+            summaryField1.setSummaryDirection(SummaryDirection.Forward);
+            summaryField1.setSdsSummaryType(summaryType1);
+            summaryField2.setSummaryDirection(SummaryDirection.Forward);
+            summaryField2.setSdsSummaryType(summaryType2);
 
             fields = new ArrayList<Field>(Arrays.asList(dvDataItemFieldSet.getDataFields()));
             fields.add(summaryField1);
