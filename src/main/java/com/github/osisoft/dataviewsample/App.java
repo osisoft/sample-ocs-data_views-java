@@ -238,9 +238,9 @@ public class App {
             Field summaryField2 = new Field(field1);
 
             summaryField1.setSummaryDirection(SummaryDirection.Forward);
-            summaryField1.setSdsSummaryType(summaryType1);
+            summaryField1.setSummaryType(summaryType1);
             summaryField2.setSummaryDirection(SummaryDirection.Forward);
-            summaryField2.setSdsSummaryType(summaryType2);
+            summaryField2.setSummaryType(summaryType2);
 
             fields = new ArrayList<Field>(Arrays.asList(dvDataItemFieldSet.getDataFields()));
             fields.add(summaryField1);
