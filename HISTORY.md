@@ -1,9 +1,26 @@
 # Version History
 
-## 1.1.0 / 2021-05-24
+## 1.1.0 / 2021-05-27
 
 - Added steps 12 and 13 for Uom and Summary columns
 - Added uoms to pressure and temperature properties
+
+## 1.0.7 / 2021-05-19
+
+- Updated dependencies
+
+## 1.0.6 / 2021-04-13
+
+- Updated dependencies
+
+## 1.0.5 / 2021-03-24
+
+- Updated pipeline to use internal agent pool
+- Updated pipeline to reference main branch
+
+## 1.0.4 / 2021-02-09
+
+- Fixed standalone repo azure pipeline
 
 ## 1.0.3 / 2021-01-25
 
