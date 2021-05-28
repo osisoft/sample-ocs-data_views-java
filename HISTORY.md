@@ -1,5 +1,10 @@
 # Version History
 
+## 1.1.0 / 2021-05-27
+
+- Added steps 12 and 13 for Uom and Summary columns
+- Added uoms to pressure and temperature properties
+
 ## 1.0.7 / 2021-05-19
 
 - Updated dependencies
