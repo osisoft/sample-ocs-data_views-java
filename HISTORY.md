@@ -1,5 +1,9 @@
 # Version History
 
+## 1.1.1 / 2021-06-10
+
+- Updated dependencies
+
 ## 1.1.0 / 2021-05-27
 
 - Added steps 12 and 13 for Uom and Summary columns
